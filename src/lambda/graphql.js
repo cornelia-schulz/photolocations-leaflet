@@ -1,4 +1,5 @@
-const { ApolloServer, gql } = require("apollo-server-lambda")
+require('encoding')
+const { ApolloServer } = require("apollo-server-lambda")
 const typeDefs = require('../schema')
 const resolvers = require('../resolvers')
 
