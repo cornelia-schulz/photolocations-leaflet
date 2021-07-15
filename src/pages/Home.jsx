@@ -7,7 +7,7 @@ function Home() {
         <Header />
         <Map />
       </div>
-    );
+    )
 }
 
 export default Home

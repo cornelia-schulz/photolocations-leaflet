@@ -8,14 +8,13 @@ const typeDefs = gql`
     lat: Int,
     lng: Int,
     info_title: String,
-    info: String
+    info: String,
+    type: String
   }
 
   type Query {
     locations: [Location],
-    location(id: Int): Location,
-    hello: String,
-    hello1: String
+    location(id: Int): Location
   }
 
   input LocationInput {
