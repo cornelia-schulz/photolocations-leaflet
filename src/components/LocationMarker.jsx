@@ -3,7 +3,16 @@ import { Marker, Popup, useMap } from 'react-leaflet'
 // import currentLocationIcon from '../images/icon-location.svg'
 import cameraIcon from '../images/photo-camera.png'
 
-function LocationMarker({location}) {
+function LocationMarker({
+  id,
+  info,
+  info_title,
+  label,
+  lat,
+  lng,
+  title,
+  type
+}) {
   const [position, setPosition] = useState(null)
   const L = require('leaflet')
   // const currentPositionIcon = L.icon({
@@ -27,22 +36,23 @@ function LocationMarker({location}) {
   const map = useMap()
 
   useEffect(() => {
-    console.log(location)
     map.locate().on('locationfound', function (e) {
-      // console.log(e.latlng)
-      console.log('marker', location)
-      // const latlng = {
-      //   lat: location.lat,
-      //   lng: location.lng
-      // }
-      setPosition(e.latlng)
-      map.flyTo(e.latlng, map.getZoom())
+      const latlng = {
+        lat: lat,
+        lng: lng
+      }
+      setPosition(latlng)
+      if (type === 'home') {
+        map.flyTo(e.latlng, map.getZoom())
+      }
     })
-  }, [location, map])
+  }, [lat, lng, map])
 
   return position === null ? null : (
     <Marker position={position} icon={cameraImageIcon}>
-      <Popup>You are here</Popup>
+      <Popup>
+        <h2>{title}</h2>
+      </Popup>
     </Marker>
   )
 }

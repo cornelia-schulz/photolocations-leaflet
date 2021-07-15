@@ -5,8 +5,8 @@ const typeDefs = gql`
     id: ID!,
     title: String,
     label: String,
-    lat: Int,
-    lng: Int,
+    lat: Float,
+    lng: Float,
     info_title: String,
     info: String,
     type: String
@@ -20,8 +20,8 @@ const typeDefs = gql`
   input LocationInput {
     title: String,
     label: String,
-    lat: Int,
-    lng: Int,
+    lat: Float,
+    lng: Float,
     info_title: String,
     info: String
   }

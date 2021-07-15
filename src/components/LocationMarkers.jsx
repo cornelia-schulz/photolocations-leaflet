@@ -22,12 +22,19 @@ function LocationMarkers() {
   if (error) return <p>Error :( </p>
 
   return (
-    <div>
-      <p>location: {data.locations}</p>
-      {data.locations.map((location) =>
-        <LocationMarker location={location} />
-      )}
-    </div>
+      data.locations.map((location, index) =>
+        <LocationMarker
+          id={location.id}
+          info={location.info} 
+          info_title={location.info_title}
+          key={index}
+          label={location.label}
+          lat={location.lat}
+          lng={location.lng}
+          title={location.title}
+          type={location.type}
+        />
+      )
   )
 }
 
