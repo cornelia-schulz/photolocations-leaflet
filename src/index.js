@@ -4,11 +4,13 @@ import './reset.css'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import ApolloClient from 'apollo-boost'
+import ApolloClient, { InMemoryCache } from 'apollo-boost'
 import { ApolloProvider } from '@apollo/client'
 
 const client = new ApolloClient({
-  uri: '/.netlify/functions/graphql'
+  uri: '/.netlify/functions/graphql',
+  // uri: 'http://localhost:9000/graphql',
+  cache: new InMemoryCache()
 })
 
 ReactDOM.render(
