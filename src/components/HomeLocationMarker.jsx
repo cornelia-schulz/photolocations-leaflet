@@ -7,7 +7,7 @@ function HomeLocationMarker() {
   const L = require('leaflet')
   const customIcon = L.icon({
     iconUrl: icon,
-    iconSize: [32,42],
+    iconSize: [25,32],
     iconAnchor: [0, 0],
     popupAnchor: [16, 0],
     shadowUrl: null,
