@@ -1,9 +1,11 @@
 import { MapContainer, TileLayer } from 'react-leaflet'
 import LocationMarkers from './LocationMarkers'
 import HomeLocationMarker from './HomeLocationMarker'
+import SearchControl from './SearchControl'
+import { OpenStreetMapProvider } from 'react-leaflet-geosearch'
 
 function Map() {
-
+    const provider = OpenStreetMapProvider()
     return (
       <MapContainer
         center={{ lat: -41.27056663303353,
@@ -16,6 +18,18 @@ function Map() {
         />
         <LocationMarkers />
         <HomeLocationMarker />
+        <SearchControl
+          provider={provider}
+          showMarker={true}
+          showPopup={false}
+          popupFormat={({ query, result }) => result.label}
+          maxMarkers={3}
+          retainZoomLevel={false}
+          animateZoom={true}
+          autoClose={false}
+          searchLabel={"Enter a place name"}
+          keepResult={true}
+        />
       </MapContainer>
     )
  }
