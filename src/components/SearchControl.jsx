@@ -12,7 +12,7 @@ const SearchControl = (props) => {
       })
   
       map.addControl(searchControl)
-      return () => map.removeControl(searchControl);
+      return () => map.removeControl(searchControl)
     }, [props, map])
   
     return null

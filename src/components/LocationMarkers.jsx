@@ -17,7 +17,6 @@ const GETLOCATIONS = gql`
 
 function LocationMarkers() {
   const { loading, error, data } = useQuery(GETLOCATIONS)
-  console.log(data)
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :( </p>
 

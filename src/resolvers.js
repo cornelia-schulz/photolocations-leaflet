@@ -1,6 +1,5 @@
 
 const getLocations = () => {
-    console.log(locations, 'hello')
     return (locations)
 }
 
